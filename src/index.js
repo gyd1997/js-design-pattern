@@ -1,20 +1,29 @@
-class Person {
-    constructor(name, age) {
-        this.name = name
-        this.age = age
-    }
-    eat() {
-        alert(`${this.name} eat something`)
-    }
-    speak() {
-        alert(`My name is ${this.name}, age ${this.age}`)
-    }
+function loadImg(src) {
+    let promise = new Promise(function(resolve, reject) {
+        let img = document.createElement('img')
+        img.onload = function() {
+            resolve(img)
+        }
+        img.onerror = function() {
+            reject('图片加载失败')
+        }
+        img.src = src 
+    })
+    return promise
 }
 
-let zhang = new Person('zhang', 20)
-zhang.eat()
-zhang.speak()
+let src = 'https://img.alicdn.com/imgextra/i3/2732547402/O1CN01uEn8lG24YADXw7NbB_!!0-item_pic.jpg_80x80.jpg'
 
-let wang = new Person('wang', 21)
-wang.eat()
-wang.speak()
+let result = loadImg(src)
+
+result.then(function(img) {
+    alert(`width: ${img.width}`)
+    return img
+}).then(function(img) {
+    alert(`height: ${img.height}`)
+    return img
+}).then(function(img) {
+    alert(img.src)
+}).catch(function(ex) {
+    alert(ex)
+})

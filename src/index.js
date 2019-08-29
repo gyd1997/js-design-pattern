@@ -1,29 +1,37 @@
-function loadImg(src) {
-    let promise = new Promise(function(resolve, reject) {
-        let img = document.createElement('img')
-        img.onload = function() {
-            resolve(img)
-        }
-        img.onerror = function() {
-            reject('图片加载失败')
-        }
-        img.src = src 
-    })
-    return promise
+class Car {
+    constructor(number, name) {
+        this.name = name
+        this.number = number
+    }
 }
 
-let src = 'https://img.alicdn.com/imgextra/i3/2732547402/O1CN01uEn8lG24YADXw7NbB_!!0-item_pic.jpg_80x80.jpg'
+class Kuaiche extends Car {
+    constructor(number, name) {
+        super(number, name)
+        this.price = 1
+    }
+}
 
-let result = loadImg(src)
+class Zhuanche extends Car {
+    constructor(number, name) {
+        super(number, name)
+        this.price = 2
+    }
+}
 
-result.then(function(img) {
-    alert(`width: ${img.width}`)
-    return img
-}).then(function(img) {
-    alert(`height: ${img.height}`)
-    return img
-}).then(function(img) {
-    alert(img.src)
-}).catch(function(ex) {
-    alert(ex)
-})
+class Trip {
+    constructor(car) {
+        this.car = car
+    }
+    start() {
+        console.log(`行程开始, 名称: ${this.car.name}, 车牌号: ${this.car.number}`)
+    }
+    end() {
+        console.log('行程结束, 价钱: ' + this.car.price * 5)
+    }
+}
+
+let car = new Kuaiche('10000', '桑塔纳')
+let trip = new Trip(car)
+trip.start()
+trip.end()

@@ -10,13 +10,13 @@ class Product {
         this.name = name
     }
     init() {
-        alert('init')
+        alert('init()')
     }
     fun1() {
-        alert('fun1')
+        alert('fun1()')
     }
     fun2() {
-        alert('fun2')
+        alert('fun2()')
     }
 }
 
@@ -26,8 +26,7 @@ class Creator {
     }
 }
 
-// 测试
 let creator = new Creator()
-let p = creator.create('p1')
+let p = creator.create('smartisan')
 p.init()
 p.fun1()

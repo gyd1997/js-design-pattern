@@ -10,7 +10,7 @@ class Target {
     }
     request () {
         let info = this.adaptee.specificRequest()
-        return `${info} -转换器- 中国标准插头`
+        return `${info} - 转接头 - 中国标准插头`
     }
 }
 

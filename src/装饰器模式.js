@@ -10,15 +10,15 @@ class Decorator {
     }
     draw () {
         this.circle.draw()
-        this.setRedBorder(circle) 
+        this.setRedBorder(circle)
     }
     setRedBorder (circle) {
-        console.log('设置红色边框')
+        console.log('加红色边框')
     }
 }
 
 let circle = new Circle()
 circle.draw()
-console.log('---------')
+console.log('-----')
 let dec = new Decorator(circle)
 dec.draw()

@@ -13,7 +13,7 @@ class ReadImg {
 
 class ProxyImg {
     constructor (fileName) {
-        this.realImg = new ReadImg(fileName) 
+        this.realImg = new ReadImg(fileName)
     }
     display () {
         this.realImg.display()
@@ -21,4 +21,4 @@ class ProxyImg {
 }
 
 let proxyImg = new ProxyImg('a.png')
-proxyImg.display()
+proxyImg.display
